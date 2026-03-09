@@ -32,12 +32,36 @@ async function searchTeam() {
     }
 
     resultDiv.innerHTML = `
-      <h2>${team.full_name}</h2>
-      <p><strong>City:</strong> ${team.city || "N/A"}</p>
-      <p><strong>Conference:</strong> ${team.conference || "N/A"}</p>
-      <p><strong>Division:</strong> ${team.division || "N/A"}</p>
-      <p><strong>Abbreviation:</strong> ${team.abbreviation || "N/A"}</p>
-      <p><strong>Data Source:</strong> ${payload.source}</p>
+      <div class="team-header">
+        <img
+          class="team-logo"
+          src="https://a.espncdn.com/i/teamlogos/nba/500/${team.abbreviation.toLowerCase()}.png"
+          alt="${team.full_name} logo"
+        />
+        <div>
+          <h2>${team.full_name}</h2>
+          <p class="team-subtitle">${team.abbreviation} • ${team.city || "N/A"}</p>
+        </div>
+      </div>
+
+      <div class="team-details">
+        <div class="detail-box">
+          <span class="label">City</span>
+          <span class="value">${team.city || "N/A"}</span>
+        </div>
+        <div class="detail-box">
+          <span class="label">Conference</span>
+          <span class="value">${team.conference || "N/A"}</span>
+        </div>
+        <div class="detail-box">
+          <span class="label">Division</span>
+          <span class="value">${team.division || "N/A"}</span>
+        </div>
+        <div class="detail-box">
+          <span class="label">Data Source</span>
+          <span class="value">${payload.source === "api" ? "Live API" : "Fallback Data"}</span>
+        </div>
+      </div>
     `;
 
     resultDiv.classList.remove("hidden");
