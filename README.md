@@ -16,3 +16,13 @@ A simple web app that allows users to search for NBA teams and view information 
 ```bash
 npm install
 node server.js
+Open:
+
+http://localhost:3000
+
+Then commit:
+
+```bash
+git add .
+git commit -m "Added README"
+git push
