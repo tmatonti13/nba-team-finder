@@ -1,3 +1,4 @@
+require("dotenv").config();
 const express = require("express");
 const path = require("path");
 const { BalldontlieAPI } = require("@balldontlie/sdk");
@@ -6,7 +7,7 @@ const app = express();
 const PORT = 3000;
 
 const api = new BalldontlieAPI({
-  apiKey: "96bae349-c2ab-4677-aba2-35db407b219a"
+  apiKey: process.env.API_KEY
 });
 
 const fallbackTeams = [
